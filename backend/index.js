@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import productRoute from './routes/productRoute.js';
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+app.use('/product', productRoute);
+
 // connect to Mongodb and console logging
 
 mongoose.connect(MONGODB_URL)
@@ -26,9 +29,4 @@ mongoose.connect(MONGODB_URL)
     .catch(err => {
         console.log('Error connecting to MongoDB:', err.message);
     });
-
-
-
-
-
 
