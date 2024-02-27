@@ -1,10 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import productRoute from './routes/product.routes.js';
-import userRoute from './routes/user.routes.js';
 import cors from "cors";
 import bodyParser from 'body-parser';
+import productRoute from './routes/product.routes.js';
+import authRoute from './routes/auth.routes.js';
+import userRoute from './routes/user.routes.js';
 
 dotenv.config();
 
@@ -20,7 +21,10 @@ app.get('/', (req, res) => {
 
 app.use('/product', productRoute);
 
-app.use('/user', userRoute);
+app.use('/auth', authRoute);
+
+app.use('/admin/users', userRoute);
+
 
 // connect to Mongodb and console logging
 
