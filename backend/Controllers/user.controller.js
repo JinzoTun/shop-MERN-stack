@@ -1,11 +1,6 @@
-import express from 'express';
 import { User } from '../Models/userModel.js';
 
-const router = express.Router();
-
-// route to add new User
-
-router.post('/', async (request, response) => {
+export const createUser = async (request, response) => {
     try {
         if (
             !request.body.name ||
@@ -30,6 +25,4 @@ router.post('/', async (request, response) => {
         console.log(error.message);
         response.status(500).send({ message: error.message });
     }
-});
-
-export default router;
+}

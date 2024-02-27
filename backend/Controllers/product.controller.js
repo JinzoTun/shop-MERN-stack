@@ -1,11 +1,7 @@
-import express from 'express';
 import { Product } from '../Models/productModel.js';
 
-const router = express.Router();
 
-// route to add new Product 
-
-router.post('/', async (request, response) => {
+export const createProduct = async (request, response) => {
     try {
         if (
             !request.body.title ||
@@ -29,11 +25,9 @@ router.post('/', async (request, response) => {
         console.log(error.message);
         response.status(500).send({ message: error.message });
     }
-});
+}
 
-// route to get all products
-
-router.get('/', async (request, response) => {
+export const getProducts = async (request, response) => {
     try {
         const products = await Product.find({});
 
@@ -45,12 +39,9 @@ router.get('/', async (request, response) => {
         console.log(error.message);
         response.status(500).send({ message: error.message });
     }
-});
+}
 
-
-// Route for Get One product from database by id
-
-router.get('/:id', async (request, response) => {
+export const getProduct = async (request, response) => {
     try {
         const product = await Product.findById(request.params.id);
 
@@ -65,11 +56,9 @@ router.get('/:id', async (request, response) => {
         console.log(error.message);
         response.status(500).send({ message: error.message });
     }
-});
+}
 
-// Route for Update product in database
-
-router.put('/:id', async (request, response) => {
+export const updateProduct = async (request, response) => {
     try {
         const product = await Product.findById(request.params.id);
 
@@ -90,11 +79,10 @@ router.put('/:id', async (request, response) => {
         console.log(error.message);
         response.status(500).send({ message: error.message });
     }
-});
+}
 
-// Route for Delete product from database
 
-router.delete('/:id', async (request, response) => {
+export const deleteProduct = async (request, response) => {
     try {
         const product = await Product.findById(request.params.id);
 
@@ -113,7 +101,4 @@ router.delete('/:id', async (request, response) => {
         console.log(error.message);
         response.status(500).send({ message: error.message });
     }
-});
-
-
-export default router;
+}

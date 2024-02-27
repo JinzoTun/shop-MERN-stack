@@ -1,8 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import productRoute from './routes/productRoute.js';
-import userRoute from './routes/userRoute.js';
+import productRoute from './routes/product.routes.js';
+import userRoute from './routes/user.routes.js';
+import cors from "cors";
+import bodyParser from 'body-parser';
 
 dotenv.config();
 
