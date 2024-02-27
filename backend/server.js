@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import productRoute from './routes/productRoute.js';
+import userRoute from './routes/userRoute.js';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/product', productRoute);
+
+app.use('/user', userRoute);
 
 // connect to Mongodb and console logging
 
