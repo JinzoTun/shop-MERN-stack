@@ -12,7 +12,9 @@ const Navbar = () => {
 
 
             <div className='  flex items-center'>
-                <Link href="/"><image src="vercel.svg" width={70} height={70} alt="" /></Link>
+                <Link href="/">
+                    <image src="/hero.jpg" ></image>
+                </Link>
             </div>
 
             <ul className=' max-md:hidden justify-center align-middle  flex gap-7'>
