@@ -10,10 +10,16 @@ import userRoute from './routes/user.routes.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const MONGODB_URL = process.env.MONGODB_URL;
 
 app.use(express.json());
+
+app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
