@@ -31,10 +31,7 @@ export const getProducts = async (request, response) => {
     try {
         const products = await Product.find({});
 
-        return response.status(200).json({
-            count: products.length,
-            data: products,
-        });
+        return response.status(200).json({ products });
     } catch (error) {
         console.log(error.message);
         response.status(500).send({ message: error.message });
